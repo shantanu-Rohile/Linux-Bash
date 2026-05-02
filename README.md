@@ -85,4 +85,43 @@
     - example:
         - 'find . -name "*.log" -exec grep "error" {} +'
         - {} holds the file names 
-        - '+' executes in batch
+        - '+' executes in 
+        
+# CHMOD & CHOWN Commands
+
+### CHMOD - Chnnge Mod
+
+- CHMOD is usually used to change the permissions of file or directory in linux system.
+- ls -l command is used to check permissions of file.
+- There are three users of file and directory in linux (user, group and all other excluding o and g)
+    - u - user (owner)
+    - g - group
+    - o - others
+- there are three main permissions in Linux 
+    - r - read (4)
+    - w - write (2)
+    - x - Execute (1)
+- You can assign permission to the file via
+    - example : `sudo chmod u+x script.sh` (this grants execute permission to user)
+    - example : `sudo chmod a+x script.sh` (this grants execute permission to all three u,g,o)
+    - example : `sudo chmod  +x script.sh` (this command is also used to grant permission to all three u,g,o simultaneously)
+
+- **Numeric method / Octal Method**
+    - Example : sudo chmod 764 script.sh (permissions granted u:rw , g:rw , o:r)
+    - It is not advised to use 777 as it gives permission to all (u,g,o) and it is not safe.
+
+
+
+### Creating users and groups
+
+- Command used to create an new user is `adduser` 
+    - Example : `sudo adduser newUser` `and sudo passwd newUser` is the command used to set password
+- Command to create an new group is `addgroup`
+- Example : `sudo addgroup newGroup` 
+
+### CHOWN - Change Owner
+
+- Command to used to change the owner or group assigned of file, directory or etc 
+- Command : `sudo chown newuser: script.sh` (This command changes the owner of file script.sh to newUser)
+- Command : `sudo chown :newGroup script.sh` (This command changes the group of the file script.sh to newGroup)
+- Command : `sudo chown newuser:newGroup scriptNew.sh` (This command changes both the group and file of file scriptNew.sh to newuser & newGroup respectively)
